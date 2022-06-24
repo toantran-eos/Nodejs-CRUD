@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use('/api/',mainRoutes);
+app.use('/api-product/',mainRoutes);
 
 var url= "mongodb+srv://Toantran-test:toan123456@test.tgsyunq.mongodb.net/Test1?retryWrites=true&w=majority";
 

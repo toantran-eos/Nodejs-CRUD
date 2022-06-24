@@ -88,3 +88,23 @@ export function updateCourse(req,res){
         });
     })
 }
+
+export function deleteCourse(req,res){
+    const id = req.params.courseId;
+    Course.findByIdAndRemove(id)
+    .exec()
+    .then((delCourse)=>{
+        return res.status(204).json({
+            success: true,
+            message: `Delete ${delCourse.title} successful`
+
+        });
+    })
+    .catch((err)=>{
+        return res.status(500).json({
+            success:false,
+            message: 'Delete failed!',
+            error:err.message
+        });
+    })
+}
